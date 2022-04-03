@@ -4,13 +4,10 @@ const multiplicationTable = (maxValue) => {
     for (let j = 1; j <= maxValue; j++) { //loop through number again
       result += (i * j) + ' '; //multiply the numbers in the two loops, add a space between numbers
     }
-    result += '\n' //break up the lines in the multiplication table
+    result += '\n'; //break up the lines in the multiplication table
   }
   return result;
-}
-
-
-
+};
 
 console.log(multiplicationTable(1));
 console.log(multiplicationTable(5));
