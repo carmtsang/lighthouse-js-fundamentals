@@ -1,49 +1,61 @@
 const talkingCalendar = (date) => {
-  const split = date.split('/')
-  let day = parseInt(split[2]);
-  switch (split[1]) {
-    case '1':
-      month = 'January'
-      break
-    case '2':
-      month = 'February'
-      break
-    case '3':
-      month = 'March'
-      break
-    case '4':
-      month = 'April'
-      break
-    case '5':
-      month = 'May'
-      break
-    case '6':
-      month = 'June'
-      break
-    case '7':
-      month = 'July'
-      break
-    case '8':
-      month = 'August'
-      break
-    case '9':
+  const split = date.split('/') //splitting the string out by sections
+  switch (split[1]) { //switch statement to change the month
+    case '01':
+      month = 'January';
+      break;
+    case '02':
+      month = 'February';
+      break;
+    case '03':
+      month = 'March';
+      break;
+    case '04':
+      month = 'April';
+      break;
+    case '05':;
+      month = 'May';
+      break;
+    case '06':
+      month = 'June';
+      break;
+    case '07':
+      month = 'July';
+      break;
+    case '08':
+      month = 'August';;
+      break;
+    case '09':
       month = 'Septmber';
-      break
+      break;
     case '10':
-      month = 'October'
-      break
+      month = 'October';
+      break;
     case '11':
-      month = 'November'
-      break
+      month = 'November';
+      break;
     case '12':
-      month = 'December'
-      break
+      month = 'December';
+      break;
+    default: 
+      month = 'Non Applicable';
   }
 
-  let sayDate = `${month} ${day}, ${split[0]}`
+  let day = parseInt(split[2]); //removing the 0 in front.
+  let end = 'th' //default ending for the day
+  if (day !== 11 && day.toString().endsWith('1')) {
+    end = 'st';
+  } else if (day !== 12 && day.toString().endsWith('2')) {
+    end = 'nd';
+  } else if (day !== 13 && day.toString().endsWith('3')) {
+    end = 'rd';
+  }
+
+  let sayDate = `${month} ${day}${end}, ${split[0]}`
   return sayDate;
 
 }
 console.log(talkingCalendar("2017/12/02"));
-console.log(talkingCalendar("2007/11/11"));
-console.log(talkingCalendar("1987/08/24"));
+console.log(talkingCalendar("2007/11/12"));
+console.log(talkingCalendar("1987/03/13"));
+console.log(talkingCalendar("1956/05/24"));
